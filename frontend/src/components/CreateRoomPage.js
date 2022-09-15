@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import {
-	Button,
-	Grid,
-	Typography,
-	TextField,
-	FormHelperText,
-	FormControl,
-	Radio,
-	RadioGroup,
-	FormControlLabel,
-} from "@material-ui/core";
+import { Button, Grid, Typography, TextField, FormHelperText, FormControl, Radio, RadioGroup, FormControlLabel } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 export default class CreateRoomPage extends Component {
@@ -67,10 +57,7 @@ export default class CreateRoomPage extends Component {
 						<FormHelperText>
 							<div align="center">Guest Control of Playback State</div>
 						</FormHelperText>
-						<RadioGroup
-							row
-							defaultValue="true"
-							onChange={this.handleGuestCanPauseChange}>
+						<RadioGroup row defaultValue="true" onChange={this.handleGuestCanPauseChange}>
 							<FormControlLabel
 								value="true"
 								control={<Radio color="primary" />}
@@ -104,10 +91,7 @@ export default class CreateRoomPage extends Component {
 					</FormControl>
 				</Grid>
 				<Grid item xs={12} align="center">
-					<Button
-						color="secondary"
-						variant="contained"
-						onClick={this.handleRoomButtonPressed}>
+					<Button color="secondary" variant="contained" onClick={this.handleRoomButtonPressed}>
 						Create a Room
 					</Button>
 				</Grid>
