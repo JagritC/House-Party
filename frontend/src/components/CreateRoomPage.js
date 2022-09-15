@@ -18,7 +18,7 @@ export default class CreateRoomPage extends Component {
 		//whenever the state changes the component is updated
 		this.state = {
 			guestCanPause: true,
-			votesToSkip: this.votesToSkip,
+			votesToSkip: this.defaultVotes,
 		};
 		this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this);
 		this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
