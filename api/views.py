@@ -8,7 +8,7 @@ from .serializers import RoomSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import CreateRoomSerializer
-
+from django.http import JsonResponse
 
 class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()
@@ -80,3 +80,16 @@ class roomJoin(APIView):
                 return Response({'message: Room Joined!'}, status=status.HTTP_200_OK)
             return Response({'Bad Request: Invalid Room Code'}, status=status.HTTP_400_BAD_REQUEST)
         return Response({"Bad Request: Invalid post data, did not find room key"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserInRoom(APIView):
+    def get(self, request, format=None):
+        if not self.request.session.exists(self.request.session.session_key):
+            self.request.session.create()
+
+        data = {
+            'code': self.request.session.get('room_code')
+        }
+
+        #serializes a python dictionary using a json serializer before sending it as a request
+        return JsonResponse(data, status=status.HTTP_200_OK)
